@@ -1,40 +1,70 @@
 # FutureInfer
 
-FutureInfer is an open-source research repository investigating the software substrate required to turn foundation models into reliable agentic systems. It is an early-stage building block of FastInfer Inc., maintained as an open project so that its components, experiments, and findings can be examined, reproduced, and extended.
+Open-source research on the software substrate around foundation models. Early-stage project of FastInfer Inc.
 
-## Motivation
+## Premise
 
-Computing is shifting from models that answer prompts to agents that operate. An agent in the modern sense is not a single model call. It is a system composed of a model, a memory, a set of tools and skills, feedback loops, and an execution layer that can affect the outside world. The human supplies an abstract goal; the system is expected to plan, act, verify, and improve.
+Open-source foundation models are improving fast. The infrastructure that turns a model into something that gets work done is not. We don't yet know what the right shape of that infrastructure is. FutureInfer is organized around the open questions, not around a fixed answer.
 
-The capability of open-source foundation models is advancing quickly. The infrastructure that surrounds them — runtimes, memory, verification, tool protocols, sandboxing, and controlled action — is not advancing at the same rate. FutureInfer focuses on this gap. In the spirit of projects such as openclaw and other open agentic software efforts, the goal is not another assistant surface, but the missing substrate underneath.
+## Open Questions
 
-## Core Pipeline
+The repository treats each of these as a research thread. An answer — partial, experimental, or critical — can become a project, a prototype, or a contribution.
 
-FutureInfer studies the full pipeline that connects a human goal to a trustworthy machine outcome:
+### Agents
 
-**human intent → planning → tool execution → verification → memory → controlled action**
+- What is an agent, beyond a model in a loop? What separates an agent from a script?
+- When should a system be one agent vs. many cooperating agents?
+- How does an agent know when it is done, stuck, or wrong?
 
-Each stage is treated as a first-class research surface. Intent is interpreted and decomposed into plans. Plans are executed through tools in constrained environments. Outcomes are verified against expected behavior. Results and traces are recorded into structured memory. Only then is the system permitted to act on the world, under explicit controls.
+### Goals and intent
+
+- How should a human specify a goal so that a machine can act on it without misreading it?
+- What acceptance criteria can be inferred, and what must be stated?
+- How is intent revised mid-task without losing prior work?
+
+### Context and memory
+
+- What belongs in the model's context at each step, and what does not?
+- What should persist across sessions, and in what form — traces, facts, skills, embeddings, code?
+- How is stale or wrong memory detected and removed?
+
+### Tools and protocols
+
+- What is the right interface between a model and a tool?
+- How are tools described, discovered, composed, and versioned?
+- How do tool failures propagate without derailing the system?
+
+### Runtime and sandboxing
+
+- What execution guarantees does an agent runtime need to provide?
+- What isolation primitives are missing for safe tool execution?
+- How is resource use — time, money, network, disk — bounded?
+
+### Verification
+
+- How do we know an agent's output is correct before acting on it?
+- Where do tests, type checks, secondary models, and human review each fit?
+- What can be verified cheaply, and what cannot be verified at all?
+
+### Controlled action
+
+- What makes an action reversible, and what makes it durable?
+- How is authorization scoped, requested, and revoked?
+- What audit trail is needed for an agent that touches shared systems?
+
+### Evaluation
+
+- How do we measure whether an agent is improving?
+- What benchmarks exist, and what do they fail to capture?
 
 ## Scope
 
-FutureInfer is not a chatbot, an IDE plugin, or an automation script. It is not a wrapper around an existing assistant, and it is not aimed at producing a single product surface. It is a research project investigating the substrate underneath such systems.
-
-## Research Areas
-
-- Agentic runtimes and execution models
-- Tool use and tool protocols
-- Memory systems for long-running agents
-- Sandboxing and isolation primitives
-- Verification of agent behavior and outputs
-- Secure and controlled action
-- Human-computer interaction for goal specification and oversight
-- Autonomous software engineering
+Not a chatbot, IDE plugin, automation script, or assistant wrapper. A research substrate.
 
 ## Status
 
-Early stage. Interfaces, abstractions, and experiments are expected to change as the research progresses. Issues and discussion are welcome.
+Early stage. Questions, prototypes, and counter-arguments are welcome.
 
 ## License
 
-Open source. See the repository for license details.
+See repository.
